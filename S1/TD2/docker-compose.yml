@@ -1,8 +1,8 @@
-# docker-compose.yml
+version: "1"
 
 services:
   database:
-    build: 
+    build:
       context: ./database
       dockerfile: Dockerfile
     ports:
@@ -10,13 +10,15 @@ services:
     volumes:
       - .:/database
     environment:
-      MYSQL_ROOT_PASSWORD: "movie123"
+      MYSQL_ROOT_PASSWORD: "movie123" 
+  
 
-  web:
-    build: 
+  webapp:
+    build:
       context: ./webapp
       dockerfile: Dockerfile
     ports:
       - "8080:80"
     volumes:
       - .:/webapp
+    
